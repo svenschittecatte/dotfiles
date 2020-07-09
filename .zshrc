@@ -20,13 +20,17 @@ export GRADLE_USER_HOME=$HOME/.gradle
 
 # Aliae
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 alias ff="nvim \$(find . -type f | fzf --preview='head -$LINES {}')"
 alias fd="cd \$(find . -type d | fzf --preview='head -$LINES {}')"
+
 alias gs="git status"
 alias gpull="git pull origin"
 alias gpush="git push origin"
+
+alias c='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cs="c status"
+alias cpull="c pull origin"
+alias cpush="c push origin"
 
 alias mci="mvn clean install"
 alias mcis="mvn clean install -DskipTests"

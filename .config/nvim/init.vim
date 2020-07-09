@@ -16,6 +16,8 @@ call plug#begin('~/.vim/plugged')
 	    Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
 	"{{ Tim Pope Plugins }}
 	"{{ Syntax Highlighting and Colors }}
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
