@@ -24,6 +24,11 @@ export XDG_CACHE_HOME=$HOME/.cache
 
 # Aliae
 
+alias nva="nvim ~/.config/alacritty/alacritty.yml"
+alias nvz="nvim ~/.zshrc"
+alias nvv="nvim ~/.config/nvim/init.vim"
+alias nvt="nvim ~/.tmux.conf"
+
 alias ff="nvim \$(find . -type f | fzf --preview='head -$LINES {}')"
 alias fd="cd \$(find . -type d | fzf --preview='head -$LINES {}')"
 

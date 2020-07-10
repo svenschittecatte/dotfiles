@@ -85,9 +85,10 @@ let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=60
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NERDTree
+" => FZF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Leader>d :GFiles<CR>
+map <leader>d :GFiles<CR>
+map <leader>v :Ag<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Theming
