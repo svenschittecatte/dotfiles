@@ -15,9 +15,12 @@ call plug#begin('~/.vim/plugged')
 	    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
 	    Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
 	"{{ Tim Pope Plugins }}
+        Plug 'tpope/vim-commentary'
+        Plug 'tpope/vim-fugitive'
 	"{{ Syntax Highlighting and Colors }}
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
+        Plug 'gko/vim-coloresque'
 
 call plug#end()
 
@@ -32,17 +35,21 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme gruvbox
 set background=dark
-set path+=**					" Searches current directory recursively.
-set wildmenu					" Display all matches when tab complete.
-set incsearch                   " Incremental search
-set hidden                      " Needed to keep multiple buffers open
-set nobackup                    " No auto backups
-set noswapfile                  " No swap
-set t_Co=256                    " Set if term supports 256 colors.
-set number relativenumber       " Display line numbers
-set clipboard=unnamedplus       " Copy/paste between vim and other programs.
+set path+=**                            " Searches current directory recursively.
+set wildmenu                            " Display all matches when tab complete.
+set incsearch                           " Incremental search
+set hidden                              " Needed to keep multiple buffers open
+set nobackup                            " No auto backups
+set noswapfile                          " No swap
+set nowrap
+set t_Co=256                            " Set if term supports 256 colors.
+set number relativenumber               " Display line numbers
+set clipboard=unnamedplus               " Copy/paste between vim and other programs.
 syntax enable
 let g:rehash256 = 1
+
+set undofile                            "turn on the feature  
+set undodir=$XDG_CACHE_HOME/vim/undo    "directory where the undo files will be stored
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status Line
@@ -71,14 +78,16 @@ set tabstop=4                   " One tab == four spaces.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Uncomment to autostart the NERDTree
 " autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<CR>
-"set lazyredraw
-"let g:NERDTreeDirArrowExpandable = '►'
-"let g:NERDTreeDirArrowCollapsible = '▼'
-"let NERDTreeShowLineNumbers=1
-"let NERDTreeShowHidden=1
-"let NERDTreeMinimalUI = 1
-"let g:NERDTreeWinSize=38
+map <Leader>n :NERDTreeFind<CR>
+let g:NERDTreeChDirMode = 2     " So that NERDTree changes CWD needed for fzf
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize=60
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NERDTree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <Leader>d :GFiles<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Theming
@@ -130,7 +139,7 @@ highlight Function         ctermfg=1    ctermbg=none    cterm=none
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set mouse=nicr
+set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Splits and Tabbed Files
@@ -148,3 +157,6 @@ noremap <silent> <C-Left> :vertical resize +3<CR>
 noremap <silent> <C-Right> :vertical resize -3<CR>
 noremap <silent> <C-Up> :resize +3<CR>
 noremap <silent> <C-Down> :resize -3<CR>
+
+" Additional config
+source ~/.config/nvim/coc.vim

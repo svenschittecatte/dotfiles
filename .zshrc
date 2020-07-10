@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="lambda"
+ZSH_THEME="dieter"
 
 plugins=(
   git
@@ -17,6 +17,10 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 export GRADLE_USER_HOME=$HOME/.gradle
+
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CACHE_HOME=$HOME/.cache
 
 # Aliae
 
