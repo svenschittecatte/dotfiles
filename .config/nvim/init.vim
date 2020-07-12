@@ -25,7 +25,10 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-if has('termguicolors')
+" Set true colors
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
@@ -98,23 +101,23 @@ map <leader>v :Ag<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Theming
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-highlight LineNr           ctermfg=8    ctermbg=none    cterm=none
-highlight CursorLineNr     ctermfg=7    ctermbg=8       cterm=none
-highlight VertSplit        ctermfg=0    ctermbg=8       cterm=none
-highlight Statement        ctermfg=2    ctermbg=none    cterm=none
-highlight Directory        ctermfg=4    ctermbg=none    cterm=none
-highlight StatusLine       ctermfg=7    ctermbg=8       cterm=none
-highlight StatusLineNC     ctermfg=7    ctermbg=8       cterm=none
-highlight NERDTreeClosable ctermfg=2
-highlight NERDTreeOpenable ctermfg=8
-highlight Comment          ctermfg=4    ctermbg=none    cterm=italic
-highlight Constant         ctermfg=12   ctermbg=none    cterm=none
-highlight Special          ctermfg=4    ctermbg=none    cterm=none
-highlight Identifier       ctermfg=6    ctermbg=none    cterm=none
-highlight PreProc          ctermfg=5    ctermbg=none    cterm=none
-highlight String           ctermfg=12   ctermbg=none    cterm=none
-highlight Number           ctermfg=1    ctermbg=none    cterm=none
-highlight Function         ctermfg=1    ctermbg=none    cterm=none
+" highlight LineNr           ctermfg=8    ctermbg=none    cterm=none
+" highlight CursorLineNr     ctermfg=7    ctermbg=8       cterm=none
+" highlight VertSplit        ctermfg=0    ctermbg=8       cterm=none
+" highlight Statement        ctermfg=2    ctermbg=none    cterm=none
+" highlight Directory        ctermfg=4    ctermbg=none    cterm=none
+" highlight StatusLine       ctermfg=7    ctermbg=8       cterm=none
+" highlight StatusLineNC     ctermfg=7    ctermbg=8       cterm=none
+" highlight NERDTreeClosable ctermfg=2
+" highlight NERDTreeOpenable ctermfg=8
+" highlight Comment          ctermfg=4    ctermbg=none    cterm=italic
+" highlight Constant         ctermfg=12   ctermbg=none    cterm=none
+" highlight Special          ctermfg=4    ctermbg=none    cterm=none
+" highlight Identifier       ctermfg=6    ctermbg=none    cterm=none
+" highlight PreProc          ctermfg=5    ctermbg=none    cterm=none
+" highlight String           ctermfg=12   ctermbg=none    cterm=none
+" highlight Number           ctermfg=1    ctermbg=none    cterm=none
+" highlight Function         ctermfg=1    ctermbg=none    cterm=none
 " highlight WildMenu         ctermfg=0       ctermbg=80      cterm=none
 " highlight Folded           ctermfg=103     ctermbg=234     cterm=none
 " highlight FoldColumn       ctermfg=103     ctermbg=234     cterm=none

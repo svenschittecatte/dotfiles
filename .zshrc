@@ -43,6 +43,7 @@ alias c='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cs="c status"
 alias cpull="c pull origin"
 alias cpush="c push origin"
+alias caddall='c ls-files | while read -r i; do c add "$i"; done'
 
 alias mci="mvn clean install"
 alias mcis="mvn clean install -DskipTests"
