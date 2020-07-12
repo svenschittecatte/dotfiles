@@ -7,7 +7,8 @@ set nocompatible              " be iMproved, required
 call plug#begin('~/.vim/plugged')
 
 	"{{ The Basics }}
-        Plug 'morhetz/gruvbox'
+        "Plug 'morhetz/gruvbox'
+        Plug 'dracula/vim', { 'as': 'dracula' }
 	    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	    Plug 'itchyny/lightline.vim'                       " Lightline statusbar
 	"{{ File management }}
@@ -20,9 +21,13 @@ call plug#begin('~/.vim/plugged')
 	"{{ Syntax Highlighting and Colors }}
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
-        Plug 'gko/vim-coloresque'
+        Plug 'chrisbra/Colorizer'
 
 call plug#end()
+
+if has('termguicolors')
+  set termguicolors
+endif
 
 " Brief help
 " :PluginList       - lists configured plugins
@@ -33,7 +38,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme gruvbox
+colorscheme dracula
 set background=dark
 set path+=**                            " Searches current directory recursively.
 set wildmenu                            " Display all matches when tab complete.

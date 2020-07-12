@@ -22,28 +22,27 @@ main()
   show_weather=$(get_tmux_option "@dracula-show-weather" false)
   show_fahrenheit=$(get_tmux_option "@dracula-show-fahrenheit" false)
   show_powerline=$(get_tmux_option "@dracula-show-powerline" true)
-  show_left_icon=$(get_tmux_option "@dracula-show-left-icon" smiley)
+  show_left_icon=$(get_tmux_option "@dracula-show-left-icon" session)
   show_military=$(get_tmux_option "@dracula-military-time" false)
-  show_left_sep=$(get_tmux_option "@dracula-show-left-sep" )
-  show_right_sep=$(get_tmux_option "@dracula-show-right-sep" )
+  show_left_sep=$(get_tmux_option "@dracula-show-left-sep" "")
+  show_right_sep=$(get_tmux_option "@dracula-show-right-sep" "")
   show_border_contrast=$(get_tmux_option "@dracula-border-contrast" false)
   show_cpu_usage=$(get_tmux_option "@dracula-cpu-usage" false)
   show_ram_usage=$(get_tmux_option "@dracula-ram-usage" false)
   show_gpu_usage=$(get_tmux_option "@dracula-gpu-usage" false)
 
   # Dracula Color Pallette
-  white='#E6E6E6'
+  white='#bfbfbf'
   gray='#44475a'
-  dark_gray='#292A2B'
-  light_purple='#FF75B5'
-  dark_purple='#45A9F9'
-  cyan='#67d3c2'
-  green='#19f9d8'
+  dark_gray='#4d4d4d'
+  light_purple='#ff79c6'
+  dark_purple='#bd93f9'
+  cyan='#8be9fd'
+  green='#50fa7b'
   orange='#B084EB'
-  red='#ffb86c'
-  pink='#B084EB'
-  yellow='#FFB86C'
-  
+  red='#ff5555'
+  pink='#ff92d0'
+  yellow='#f1fa8c'
 
   # Handle left icon configuration
   case $show_left_icon in
@@ -56,6 +55,7 @@ main()
       *)
           left_icon=$show_left_icon;;
   esac
+  left_icon=
 
   # Handle powerline option
   if $show_powerline; then
@@ -121,8 +121,8 @@ main()
       fi	
 
       if $show_network; then # network
-        tmux set-option -ga status-right "#[fg=${cyan},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${cyan}] #($current_dir/network.sh)"
-        powerbg=${cyan}
+        tmux set-option -g status-right "#[fg=${dark_gray},bg=${green}]${right_sep}#[fg=${dark_gray},bg=${green}] #($current_dir/network.sh)"
+        powerbg=${green}
       fi
 
       if $show_weather; then # weather
@@ -136,7 +136,7 @@ main()
 	# tmux set-option -ga status-right "#[fg=${dark_purple},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${white},bg=${dark_purple}] %a %m/%d %I:%M %p #(date +%Z) "
       # fi
 
-      tmux set-window-option -g window-status-current-format "#[fg=${gray},bg=${dark_purple}]${left_sep}#[fg=${white},bg=${dark_purple}] #I #W #[fg=${dark_purple},bg=${gray}]${left_sep}"
+      tmux set-window-option -g window-status-current-format "#[fg=${gray},bg=${dark_purple}]${left_sep}#[fg=${dark_gray},bg=${dark_purple}] #I #W #[fg=${dark_purple},bg=${gray}]${left_sep}"
   
   # Non Powerline Configuration
   else

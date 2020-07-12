@@ -22,6 +22,9 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
 
+export EDITOR='nvim'
+export VISUAL='nvim'
+
 # Aliae
 
 alias nva="nvim ~/.config/alacritty/alacritty.yml"
@@ -36,7 +39,7 @@ alias gs="git status"
 alias gpull="git pull origin"
 alias gpush="git push origin"
 
-alias c='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias c='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cs="c status"
 alias cpull="c pull origin"
 alias cpush="c push origin"
