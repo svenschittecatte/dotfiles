@@ -6,4 +6,3 @@
 ./installp.sh NEOVIM
 ./installp.sh ALACRITTY
 ./installp.sh NVM
-./installp.sh OPENVPN
