@@ -7,8 +7,8 @@ set nocompatible              " be iMproved, required
 call plug#begin('~/.vim/plugged')
 
 	"{{ The Basics }}
-        "Plug 'morhetz/gruvbox'
-        Plug 'dracula/vim', { 'as': 'dracula' }
+        Plug 'morhetz/gruvbox'
+        "Plug 'dracula/vim', { 'as': 'dracula' }
 	    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	    Plug 'itchyny/lightline.vim'                       " Lightline statusbar
 	"{{ File management }}
@@ -22,6 +22,11 @@ call plug#begin('~/.vim/plugged')
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
         Plug 'chrisbra/Colorizer'
+        if has('nvim') || has('patch-8.0.902')
+            Plug 'mhinz/vim-signify'
+        else
+            Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+        endif
 
 call plug#end()
 
@@ -41,7 +46,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme dracula
+colorscheme gruvbox
 set background=dark
 set path+=**                            " Searches current directory recursively.
 set wildmenu                            " Display all matches when tab complete.
@@ -58,6 +63,9 @@ let g:rehash256 = 1
 
 set undofile                            "turn on the feature  
 set undodir=$XDG_CACHE_HOME/vim/undo    "directory where the undo files will be stored
+
+" default updatetime 4000ms is not good for async update
+set updatetime=100
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status Line
