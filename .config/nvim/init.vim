@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 	    Plug 'itchyny/lightline.vim'                       " Lightline statusbar
 	"{{ File management }}
 	    Plug 'scrooloose/nerdtree'                         " Nerdtree
+      Plug 'Xuyuanp/nerdtree-git-plugin'
 	    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
 	    Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
 	"{{ Tim Pope Plugins }}
@@ -22,11 +23,17 @@ call plug#begin('~/.vim/plugged')
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
         Plug 'chrisbra/Colorizer'
-        if has('nvim') || has('patch-8.0.902')
-            Plug 'mhinz/vim-signify'
-        else
-            Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-        endif
+        Plug 'airblade/vim-gitgutter'
+        Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+        " if has('nvim') || has('patch-8.0.902')
+        "     Plug 'mhinz/vim-signify'
+        " else
+        "     Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+        " endif
+    "{{ Javascript and typescript }}
+        Plug 'yuezk/vim-js'
+        Plug 'maxmellon/vim-jsx-pretty'
+        Plug 'HerringtonDarkholme/yats.vim'
 
 call plug#end()
 
@@ -36,6 +43,33 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+
+" Correcting FZF goodness
+"
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path '**/bower_components/**' -prune -o -path '**/node_modules/**' -prune -o -path 'target/**' -prune -o -path 'build/**' -prune -o -path 'dist/**' -prune -o -path '**.class' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let height = float2nr(160)
+  let width = float2nr(260)
+  let horizontal = float2nr((&columns - width) / 2)
+  let vertical = 1
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': vertical,
+        \ 'col': horizontal,
+        \ 'width': width,
+        \ 'height': height,
+        \ 'style': 'minimal'
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
 
 " Brief help
 " :PluginList       - lists configured plugins
@@ -100,11 +134,16 @@ let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=60
 
+let g:NERDTreeGitStatusUseNerdFonts = 1
+let g:NERDTreeGitStatusShowIgnored = 1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FZF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>d :GFiles<CR>
+map <leader>g :GFiles<CR>
 map <leader>v :Ag<CR>
+nnoremap <silent> <C-p> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Theming
@@ -168,6 +207,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+nnoremap gq :tabclose<CR>
 
 " Make adjusing split sizes a bit more friendly
 noremap <silent> <C-Left> :vertical resize +3<CR>

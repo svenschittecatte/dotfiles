@@ -52,6 +52,7 @@ alias mcis="mvn clean install -DskipTests"
 alias g="./gradlew"
 alias gcb="g clean build"
 alias gcbt="g clean build -x test"
+alias gcbtp="g clean build -x test -x pmdMain -x pmdTest"
 alias gc="g clean"
 
 alias dk="docker-compose"
@@ -88,6 +89,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
+export NEXUS_NPM_TOKEN=NpmToken.f9e5f6a8-f850-3a5b-a89b-ac5ff8b33c54
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export JAVA_HOME="$HOME/.sdkman/candidates/java/current"
 export SDKMAN_DIR="$HOME/.sdkman"
