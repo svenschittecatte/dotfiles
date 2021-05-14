@@ -27,13 +27,16 @@ export VISUAL='nvim'
 
 # Aliae
 
+function e(){
+    neovide $1 &
+}
 alias cdd="cd ~/Development/salespoint"
-alias nva="nvim ~/.config/alacritty/alacritty.yml"
-alias nvz="nvim ~/.zshrc"
-alias nvv="nvim ~/.config/nvim/init.vim"
-alias nvt="nvim ~/.tmux.conf"
+alias nva="e ~/.config/alacritty/alacritty.yml"
+alias nvz="e ~/.zshrc"
+alias nvv="e ~/.config/nvim/init.vim"
+alias nvt="e ~/.tmux.conf"
 
-alias ff="nvim \$(find . -type f | fzf --preview='head -$LINES {}')"
+alias ff="e \$(find . -type f | fzf --preview='head -$LINES {}')"
 alias fd="cd \$(find . -type d | fzf --preview='head -$LINES {}')"
 
 alias gs="git status"

@@ -100,6 +100,7 @@ set undodir=$XDG_CACHE_HOME/vim/undo    "directory where the undo files will be 
 
 " default updatetime 4000ms is not good for async update
 set updatetime=100
+set guifont=HackNerdFont:12
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status Line
