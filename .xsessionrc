@@ -1,0 +1,5 @@
+!#/usr/bin/env bash
+export SHELL=zsh
+export TERM=alacritty
+export BROWSER="/usr/bin/google-chrome-stable"
+xset r rate 200 25
