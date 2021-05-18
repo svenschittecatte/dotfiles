@@ -351,7 +351,8 @@ format-charging = <animation-charging>    <label-charging>
 format-discharging = <animation-discharging>    <label-discharging>
 ;format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = "  "
+format-full = <label-full>
+format-full-prefix = "      "
 format-full-prefix-foreground = ${colors.foreground}
 ;format-full-underline = ${self.format-charging-underline}
 
@@ -360,9 +361,9 @@ ramp-capacity-1 = "  "
 ramp-capacity-2 = "  "
 ramp-capacity-foreground = ${colors.foreground}
 
-animation-charging-0 = "  "
-animation-charging-1 = "  "
-animation-charging-2 = "  "
+animation-charging-0 = "  "
+animation-charging-1 = "  "
+animation-charging-2 = "  "
 animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
 
@@ -382,7 +383,7 @@ format = <ramp> <label>
 format-warn = <ramp>    <label-warn>
 ;format-warn-underline = ${self.format-underline}
 
-label = %temperature-c%
+label = %temperature-c
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 

@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.nvm/versions/node/v16.1.0/bin/npm:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -89,7 +89,6 @@ function dkill() {
 
 source /usr/share/nvm/init-nvm.sh
 
-export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 export NEXUS_NPM_TOKEN=NpmToken.f9e5f6a8-f850-3a5b-a89b-ac5ff8b33c54
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export JAVA_HOME="$HOME/.sdkman/candidates/java/current"

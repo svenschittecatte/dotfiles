@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 
 	"{{ The Basics }}
         Plug 'morhetz/gruvbox'
+        Plug 'glepnir/dashboard-nvim'
         "Plug 'dracula/vim', { 'as': 'dracula' }
 	    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	    Plug 'itchyny/lightline.vim'                       " Lightline statusbar
@@ -35,7 +36,16 @@ call plug#begin('~/.vim/plugged')
         Plug 'maxmellon/vim-jsx-pretty'
         Plug 'HerringtonDarkholme/yats.vim'
 
+    " {{ Telescope }}
+        Plug 'nvim-lua/popup.nvim'
+        Plug 'nvim-lua/plenary.nvim'
+        Plug 'nvim-telescope/telescope.nvim'
+
+
 call plug#end()
+
+" Set default fzf Telescope
+let g:dashboard_default_executive ='telescope'
 
 " Set true colors
 if exists('+termguicolors')
