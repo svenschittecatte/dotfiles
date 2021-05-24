@@ -5,3 +5,8 @@ export BROWSER="/usr/bin/google-chrome-stable"
 xset r rate 200 25
 export PATH=$HOME/.nvm/versions/node/v16.1.0/bin/npm:$PATH
 export JAVA_HOME=/home/sven/.sdkman/candidates/java/current
+nm-applet &
+stalonetray &
+# Set background image with feh
+picom &
+feh --bg-scale $HOME/Wallpapers/abstract-blue.jpg &
