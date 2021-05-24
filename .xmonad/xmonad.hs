@@ -29,6 +29,7 @@ spawnToWorkspace :: String -> String -> X ()
 spawnToWorkspace workspace program = do
                                       spawn program
                                       windows $ W.greedyView workspace
+
 myTerminal    = "alacritty"
 myModMask     = mod4Mask -- Win key or Super_L
 myBorderWidth = 3

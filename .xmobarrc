@@ -6,6 +6,7 @@ Config {
    , textOffsets = [ 19 ]
    , bgColor =      "#1b85b8"
    , fgColor =      "#fff"
+   , alpha  = 255
    , position =     Top
    , border =       FullB 3
    , borderColor =  "#5a5255"
@@ -13,7 +14,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%UnsafeStdinReader% }{ %battery% | %ArchVersion% | %date% || %kbd% "
+   , template = "%UnsafeStdinReader% }{<fc=#1b85b8,#ae5a41><fn=1> </fn></fc>%battery%<fc=#ae5a41,#559e83><fn=1> </fn></fc><fc=#5a5255,#559e83> %ArchVersion% </fc><fc=#559e83,#5a5255><fn=1> </fn></fc>%date%<fc=#5a5255,#c3cb71><fn=1> </fn></fc>%kbd%<fc=#c3cb71,#1b85b8><fn=1> </fn>      </fc>"
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -80,32 +81,31 @@ Config {
                              ] 10
 
         -- battery monitor
-        , Run Battery        [ "--template" , "Batt: <acstatus>"
+        , Run Battery        [ "--template" , "<fc=#fff,#ae5a41>  Batt: <acstatus> </fc>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
-                             , "--low"      , "#ae5a41"
-                             , "--normal"   , "#5a5255"
-                             , "--high"     , "#c3cb71"
+                             , "--low"      , "#5a41ae,#ae5a41"
+                             , "--normal"   , "#7ac68b,#ae5a41"
+                             , "--high"     , "#7ac68b,#ae5a41"
 
                              , "--" -- battery specific options
                                        -- discharging status
                                        , "-o"	, "<left>% (<timeleft>)"
                                        -- AC "on" status
-                                       , "-O"	, "<fc=#c3cb71>Charging</fc>"
+                                       , "-O"	, "<fc=#7ac68b,#ae5a41>Charging</fc>"
                                        -- charged status
-                                       , "-i"	, "<fc=#5a5255>Charged</fc>"
+                                       , "-i"	, "<fc=#7ac68b,#ae5a41>Charged</fc>"
                              ] 50
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#c3cb71>%F (%a) %T</fc>" "date" 10
+        , Run Date           "<fc=#c3cb71,#5a5255> %F (%a) %T </fc>" "date" 10
 
         -- keyboard layout indicator
-        , Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")
-                             , ("us"         , "<fc=#8B0000>US</fc>")
+        , Run Kbd            [
+                             ("us"         , "<fc=#ae5a41,#c3cb71>US </fc>")
                              ]
         , Run Com "uname" ["-r"] "ArchVersion" 3600
-        , Run Com "journalctl" ["/usr/bin/dhcpcd | tail -1"] "List" 50
         , Run UnsafeStdinReader
         ]
    }
