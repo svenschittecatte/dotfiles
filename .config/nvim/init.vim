@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 	"{{ The Basics }}
         Plug 'morhetz/gruvbox'
         Plug 'glepnir/dashboard-nvim'
+        Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
         "Plug 'dracula/vim', { 'as': 'dracula' }
 	    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	    Plug 'itchyny/lightline.vim'                       " Lightline statusbar
@@ -43,6 +44,16 @@ call plug#begin('~/.vim/plugged')
 
 
 call plug#end()
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
 
 " Set default fzf Telescope
 let g:dashboard_default_executive ='telescope'
@@ -110,7 +121,7 @@ set undodir=$XDG_CACHE_HOME/vim/undo    "directory where the undo files will be 
 
 " default updatetime 4000ms is not good for async update
 set updatetime=100
-set guifont=HackNerdFont:12
+set guifont=HackNerdFont:12:qNONANTIALIASED
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status Line
