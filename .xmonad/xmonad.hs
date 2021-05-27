@@ -22,7 +22,7 @@ main = do
     , logHook     = myLogHook xmproc
     } `additionalKeys`
     [ ((myModMask, xK_w), spawn "google-chrome-stable")
-    , ((myModMask, xK_c), spawn "find $HOME/Code/ -mindepth 2 -maxdepth 2 | dmenu | xargs neovide")
+    , ((myModMask, xK_c), spawn "find $HOME/code/ -mindepth 2 -maxdepth 2 | dmenu | xargs neovide")
     ]
 
 spawnToWorkspace :: String -> String -> X ()

@@ -34,7 +34,8 @@ fuzzy_edges 0
 
 # geometry <geometry>        # tray's geometry in standard X notation; width and
                              # height are specified in slot_size multiples
-geometry 1x1+1894+0
+# geometry 1x1+1894+0
+geometry 1x1+2534+0
 
 # grow_gravity <gravity>     # one of N, S, E, W, NW, NE, SW, SE; tray will grow
                              # in the direction opposite to one specified by
@@ -44,10 +45,10 @@ geometry 1x1+1894+0
 grow_gravity E
 
 # icon_gravity <gravity>     # icon placement gravity, one of NW, NE, SW, SE
-icon_gravity N
+icon_gravity NE
 
 # icon_size <int>            # specifies dimensions of typical icon slot
-icon_size 22
+icon_size 20
 
 # log_level <level>          # controls the amount of logging output, level can
                              # be err (default), info, or trace (enabled only
