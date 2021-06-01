@@ -1,0 +1,8 @@
+// codelens
+{
+    "npm.binPath": "~/.nvm/versions/node/v16.1.0/bin/npm",
+    "java.home":"~/.sdkman/candidates/java/current",
+    "codeLens.enable": true,
+    "java.referencesCodeLens.enabled": true,
+    "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar",
+}

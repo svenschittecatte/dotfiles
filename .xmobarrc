@@ -1,7 +1,7 @@
 Config { 
 
    -- appearance
-     font =         "xft:Roboto Mono:size=6:regular:antialias=true"
+     font =         "xft:Roboto Mono:pixelsize=13:regular:antialias=true"
    , additionalFonts = ["xft:Hack Nerd Font:size=9:regular:antialias=true"]
    , textOffsets = [ 19 ]
    , bgColor =      "#1b85b8"

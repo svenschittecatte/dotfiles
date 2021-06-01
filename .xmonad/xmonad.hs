@@ -5,7 +5,9 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
+import XMonad.Hooks.ManageHelpers
 import XMonad.Util.NamedScratchpad
+import XMonad.Hooks.SetWMName
 import XMonad.Util.SpawnOnce
 import qualified XMonad.StackSet as W
 import XMonad.Layout.Reflect
@@ -16,6 +18,7 @@ main = do
     { layoutHook=avoidStruts $ myLayoutHook
     , manageHook=myManageHook <+> manageDocks
     , workspaces=myWorkspaces
+    , startupHook = setWMName "LG3D"
     , terminal    = myTerminal
     , modMask     = myModMask
     , borderWidth = myBorderWidth
@@ -39,7 +42,9 @@ myManageHook = composeAll
     [ appName =? "google-chrome"   --> doShift ( myWorkspaces !! 1 )
     , appName =? "microsoft teams - preview"                  --> doShift ( myWorkspaces !! 4 )
     , appName =? "neovide"                  --> doShift ( myWorkspaces !! 0 )
+    , isFullscreen --> myDoFullFloat
     ]
+myDoFullFloat = doF W.focusDown <+> doFullFloat
 myLogHook h  = dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP $ xmobarPP
     { ppOutput = hPutStrLn h
         , ppCurrent = xmobarColor "#fff" "#5a5255" . wrap "<fc=#5a5255><fn=1>\xe0be </fn></fc>" "<fc=#5a5255><fn=1>\xe0b8 </fn></fc>"
