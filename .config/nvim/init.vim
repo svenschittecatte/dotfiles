@@ -1,3 +1,7 @@
+if empty($XDG_CACHE_HOME)
+  let $XDG_CACHE_HOME = '~/.cache'
+endif
+
 set nocompatible              " be iMproved, required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -117,7 +121,7 @@ syntax enable
 let g:rehash256 = 1
 
 set undofile                            "turn on the feature  
-set undodir=\$XDG_CACHE_HOME/vim/undo    "directory where the undo files will be stored
+set undodir=$XDG_CACHE_HOME/vim/undo    "directory where the undo files will be stored
 
 " default updatetime 4000ms is not good for async update
 set updatetime=100
