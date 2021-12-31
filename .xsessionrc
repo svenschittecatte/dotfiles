@@ -5,10 +5,16 @@ export BROWSER="/usr/bin/google-chrome-stable"
 xset r rate 200 25
 export PATH=$HOME/.nvm/versions/node/v16.1.0/bin/npm:$PATH
 export JAVA_HOME=/home/sven/.sdkman/candidates/java/current
+
+# Set background image with feh
+
+feh --bg-scale $HOME/Wallpapers/abstract-blue.jpg &
+xrandr --output "DP-4" --mode "2560x1440"
+
+# Autostart applications
+
 nm-applet &
 stalonetray &
 volumeicon &
-# Set background image with feh
 picom &
-feh --bg-scale $HOME/Wallpapers/abstract-blue.jpg &
-xrandr --output "DP-4" --mode "2560x1440"
+jetbrains-toolbox &

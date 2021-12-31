@@ -1,5 +1,6 @@
 [Alsa]
-card=default
+card=CORSAIR VIRTUOSO SE Wireless Ga
+channel=Sidetone
 
 [Notification]
 show_notification=true

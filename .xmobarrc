@@ -1,10 +1,11 @@
 Config { 
 
    -- appearance
-     font =         "xft:Roboto Mono:pixelsize=13:regular:antialias=true"
+   --  font =         "xft:Roboto Mono:pixelsize=13:regular:antialias=true"
+     font =         "xft:Hack Nerd Font:pixelsize=14:regular:antialias=true"
    , additionalFonts = ["xft:Hack Nerd Font:pixelsize=19:regular:antialias=true"]
-   , textOffsets = [ 19 ]
-   , bgColor =      "#1b85b8"
+   , textOffsets = [ 17 ]
+   , bgColor =      "#5a5255"
    , fgColor =      "#fff"
    , alpha  = 255
    , position =     Top
@@ -14,7 +15,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%UnsafeStdinReader% }{<fc=#1b85b8,#ae5a41><fn=1> </fn></fc>%battery%<fc=#ae5a41,#559e83><fn=1> </fn></fc><fc=#5a5255,#559e83> %ArchVersion% </fc><fc=#559e83,#5a5255><fn=1> </fn></fc>%date%<fc=#5a5255,#c3cb71><fn=1> </fn></fc>%kbd%<fc=#c3cb71,#1b85b8><fn=1> </fn>             </fc>"
+   , template = "%UnsafeStdinReader% }{<fc=#5a5255,#ae5a41><fn=1> </fn></fc>%battery%<fc=#ae5a41,#559e83><fn=1> </fn></fc><fc=#5a5255,#559e83> %ArchVersion% </fc><fc=#559e83,#5a5255><fn=1> </fn></fc>%date%<fc=#5a5255,#c3cb71><fn=1> </fn></fc>%kbd%<fc=#c3cb71,#1b85b8><fn=1> </fn>             </fc>"
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
