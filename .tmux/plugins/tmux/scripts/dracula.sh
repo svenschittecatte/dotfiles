@@ -32,17 +32,17 @@ main()
   show_gpu_usage=$(get_tmux_option "@dracula-gpu-usage" false)
 
   # Dracula Color Pallette
-  white='#bfbfbf'
-  gray='#44475a'
-  dark_gray='#4d4d4d'
-  light_purple='#ff79c6'
-  dark_purple='#bd93f9'
-  cyan='#8be9fd'
-  green='#50fa7b'
-  orange='#B084EB'
-  red='#ff5555'
-  pink='#ff92d0'
-  yellow='#f1fa8c'
+  white='#a89984'
+  gray='#282828'
+  dark_gray='#282828'
+  light_purple='#b16286'
+  dark_purple='#458588'
+  cyan='#8ec07c'
+  green='#b8bb26'
+  orange='#d3869b'
+  red='#fb4934'
+  pink='#d3869b'
+  yellow='#fabd2f'
 
   # Handle left icon configuration
   case $show_left_icon in

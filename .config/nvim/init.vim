@@ -8,12 +8,12 @@ call plug#begin('~/.vim/plugged')
 
 	"{{ The Basics }}
         Plug 'morhetz/gruvbox'
-        "Plug 'dracula/vim', { 'as': 'dracula' }
+        Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 	    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	    Plug 'itchyny/lightline.vim'                       " Lightline statusbar
 	"{{ File management }}
 	    Plug 'scrooloose/nerdtree'                         " Nerdtree
-      Plug 'Xuyuanp/nerdtree-git-plugin'
+        Plug 'Xuyuanp/nerdtree-git-plugin'
 	    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
 	    Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
 	"{{ Tim Pope Plugins }}
@@ -25,17 +25,26 @@ call plug#begin('~/.vim/plugged')
         Plug 'chrisbra/Colorizer'
         Plug 'airblade/vim-gitgutter'
         Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-        " if has('nvim') || has('patch-8.0.902')
-        "     Plug 'mhinz/vim-signify'
-        " else
-        "     Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-        " endif
     "{{ Javascript and typescript }}
         Plug 'yuezk/vim-js'
         Plug 'maxmellon/vim-jsx-pretty'
         Plug 'HerringtonDarkholme/yats.vim'
+    " {{ Telescope }}
+        Plug 'nvim-lua/popup.nvim'
+        Plug 'nvim-lua/plenary.nvim'
+        Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
 
 " Set true colors
 if exists('+termguicolors')

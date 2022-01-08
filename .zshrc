@@ -1,3 +1,4 @@
+neofetch
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -11,7 +12,10 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="dieter"
 
 plugins=(
-  git
+    kubectl
+    jsontools
+    git
+    gitfast
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -26,6 +30,12 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 
 # Aliae
+# Replace ls with exa
+alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
+alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
+alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
 
 alias cdd="cd ~/Development/salespoint"
 alias nva="nvim ~/.config/alacritty/alacritty.yml"
